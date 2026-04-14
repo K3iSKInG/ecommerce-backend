@@ -1,7 +1,24 @@
 const Notification = require("../models/Notification");
 const User = require("../models/User");
-const admin = require("../config/firebase");
+//const admin = require("../config/firebase");
 //const User = require("../models/User");
+let admin = null;
+
+try {
+  admin = require("../config/firebase");
+} catch (err) {
+  console.warn("⚠️ Firebase not configured. Push notifications disabled.");
+}
+
+if (admin) {
+  admin.messaging().send({
+    token,
+    notification: {
+      title,
+      body,
+    },
+  });
+}
 
 exports.getMyNotifications = async (req, res) => {
   try {
