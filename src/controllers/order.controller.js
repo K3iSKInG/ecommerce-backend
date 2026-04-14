@@ -26,7 +26,7 @@ exports.createOrder = async (req, res) => {
     type: "ORDER",
   });
 };
-const Order = require("../models/Order");
+//const Order = require("../models/Order");
 
 exports.getMyOrders = async (req, res) => {
   try {
