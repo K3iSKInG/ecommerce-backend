@@ -1,7 +1,7 @@
 const Notification = require("../models/Notification");
 const User = require("../models/User");
 const admin = require("../config/firebase");
-const User = require("../models/User");
+//const User = require("../models/User");
 
 exports.getMyNotifications = async (req, res) => {
   try {
