@@ -1,13 +1,16 @@
 const express = require("express");
+const router = express.Router();
 const auth = require("../middlewares/auth.middleware");
+
+// ✅ IMPORT CONTROLLER FUNCTIONS
 const {
   getMyNotifications,
   markAsRead,
+  saveFcmToken,
 } = require("../controllers/notification.controller");
 
-const router = express.Router();
-
-router.get("/my", auth, getMyNotifications);
+// ROUTES
+router.get("/", auth, getMyNotifications);
 router.patch("/:id/read", auth, markAsRead);
 router.post("/save-token", auth, saveFcmToken);
 
